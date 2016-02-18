@@ -1,6 +1,10 @@
 <meta charset="utf-8" />
 <?php include('includes/config.php');
 
+if(isset($_SESSION['pseudo'])) {
+header('Location: index.php');
+}
+
 if(isset($_POST['envoyer'])) {
   if(isset($_POST['pseudo']) AND !empty($_POST['pseudo'])
   AND isset($_POST['motdepasse']) AND !empty($_POST['motdepasse']))
@@ -18,7 +22,7 @@ if(isset($_POST['envoyer'])) {
   {
   // mdp bon
   $_SESSION['pseudo'] = $pseudo;
-  $succes = 'Connexion reussie !';
+  $succes = 'Connexion reussie !   Bienvenue dans votre Espace Membre !';
 
   }
   else

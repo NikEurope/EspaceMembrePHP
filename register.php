@@ -1,6 +1,10 @@
 <meta charset="utf-8" />
 <?php include('includes/config.php');
 
+if(isset($_SESSION['pseudo'])) {
+header('Location: index.php');
+}
+
 if(isset($_POST['envoyer'])) {
   if(isset($_POST['pseudo']) AND !empty($_POST['pseudo'])
   AND isset($_POST['motdepasse']) AND !empty($_POST['motdepasse'])
@@ -13,7 +17,7 @@ if(isset($_POST['envoyer'])) {
   $motdepasse2 = mysql_escape_string (md5($_POST['motdepasse2']));
   $email = mysql_escape_string($_POST['email']);
 
-  $req2 = mysql_query('SELECT pseudo FROME membres WHERE pseudo = "'.$pseudo.'"');
+  $req2 = mysql_query('SELECT pseudo FROM membres WHERE pseudo = "'.$pseudo.'"');
   $info_membre = mysql_fetch_array($req2);
 
   if(!isset($info_membre['pseudo'])) {
@@ -24,7 +28,7 @@ if(isset($_POST['envoyer'])) {
   // Pseudo respecte le format
   if($motdepasse == $motdepasse2)
   {
-    //Les mots de passe sont identique
+    //Les mots de passe sont identiques
   mysql_query('INSERT INTO membres VALUES("", "'.$pseudo.'", "'.$motdepasse.'", "'.$email.'")');
   $succes = 'Le compte a été crée ! Vous pouvez vous connecter en cliquant <a href="login.php"> ici >>> </a>';
 

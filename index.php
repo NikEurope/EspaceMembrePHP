@@ -1,5 +1,7 @@
 
 <!-- VIDEO https://www.youtube.com/watch?v=bv3D3U5d2ck&index=15&list=PL8407690672542830 -->
+
+
 <meta charset="utf-8" />
 <?php include('includes/config.php'); ?>
 
@@ -11,6 +13,7 @@ Vous etes connecté, <?php echo $_SESSION['pseudo']; ?> . <br /><br />
 <a href="logout.php"/>Se déconnecter</a><br /></p>
 
 <?php  } else { ?>
+
 
 <br />
 <p>

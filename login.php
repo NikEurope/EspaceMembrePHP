@@ -42,6 +42,7 @@ if(isset($_POST['envoyer'])) {
 <br />
 <?php if(isset($erreur)) {echo ' Erreur : '.$erreur;}?>
 <?php if(isset($succes)) {echo $succes;}?>
+
 <hr />
 <br />
 <form action="login.php" method="post">

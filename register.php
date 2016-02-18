@@ -27,6 +27,7 @@ if(isset($_POST['envoyer'])) {
     //Les mots de passe sont identique
   mysql_query('INSERT INTO membres VALUES("", "'.$pseudo.'", "'.$motdepasse.'", "'.$email.'")');
   $succes = 'Le compte a été crée ! Vous pouvez vous connecter en cliquant <a href="login.php"> ici >>> </a>';
+
   }
   else
   {
@@ -36,7 +37,7 @@ if(isset($_POST['envoyer'])) {
   }
   else
   {
-  $erreur = 'Pseudo est tres long (max 30)';
+  $erreur = 'Pseudo est tres long (max: 30)';
   }
   }
   else
@@ -48,7 +49,6 @@ if(isset($_POST['envoyer'])) {
   {
   $erreur='Tout les champs sont obligatoires !';
   }
-
 }
 ?>
 
